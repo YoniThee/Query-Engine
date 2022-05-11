@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-
+/// <summary>
+/// This program is implemnt a simple query engine, the user get in a sql string to fing his sql server and the prgram let him to
+/// filter by sql queries by to interface - or console or UI 
+/// </summary>
 
 namespace Query_Engine
 {
