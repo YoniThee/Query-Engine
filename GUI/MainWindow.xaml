@@ -1,0 +1,59 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="LightBlue">
+    <Grid>
+        <Grid Name="Query_Board" Grid.ColumnSpan="4" Margin="0,0,19,-14" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.103"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Border Name ="login"  Background="#2e3137" CornerRadius="20" Margin="210,27,205,239">
+                <StackPanel Margin="20">
+                    <Label Name="LoginBox" Content="Enter sql server" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                    <Separator></Separator>
+                    <TextBox Name="sqlConnect" Height="35"/>
+                    <Separator></Separator>
+                    <Button x:Name="Enter_server" Content="Enter" Height="33" Width="112" Click="Enter_server_Click"/>
+
+                </StackPanel>
+            </Border>
+            <Border Name ="engine" Background="#2e3137" CornerRadius="20" Margin="215,27,200,30" Visibility="Hidden">
+                <StackPanel Margin="20">
+                    <Label Name="TitleBox" Content="Query engine" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                    <Separator></Separator>
+                    <Label Name="DB" Content="Choose data base" Foreground="White"/>
+                    <ComboBox Name="DBcombo" Background="#545d6a" Foreground="Black" FontSize="18" SelectionChanged="DBcombo_SelectionChanged" Initialized="combo_initialize"/>
+                    <Label Name ="queryBox" Content="Enter for start searching" Foreground="White" IsEnabled="False"/>
+                    <TextBox Name="query" Background="#545d6a" Foreground="White" FontSize="18" TextChanged="query_TextChanged"/>
+                    <Separator Height="15"></Separator>
+                    <Button x:Name="enter_button" Content="Enter" HorizontalAlignment="Center" Height="31" Width="160" Click="enter_button_Click"></Button>
+                    <Separator Height="18"></Separator>
+                    <Button Name="new_query" Content="new query" HorizontalAlignment="Center" Height="31" Width="160" Click="new_query_click"></Button>
+                    
+                </StackPanel>
+            </Border>
+            <Border x:Name="popUp" Background="#2e3137" CornerRadius="20" Margin="49,103,585,124">
+                <StackPanel Margin="20">
+                    <Label Name="filters" Content="choose parameter for filter" Foreground="White" FontSize="9" HorizontalAlignment="Center" Width="118"/>
+                    <ComboBox Name="optionsFilter" SelectionChanged="paramater_SelectionChanged" Initialized="parameters_Initialize"></ComboBox>
+                    <ComboBox Name="ageFilter" SelectionChanged="age_SelectionChanged" Initialized="age_Initialize" Visibility="Hidden"></ComboBox>
+                    <Button Name="add_filter" Content="Add filter" HorizontalAlignment="Stretch" Height="19" Width="90" Click="add_filter_Click"></Button>
+                    <Separator></Separator>
+                    <Button x:Name="add_or_condition" Content="Or" Height="19" Width="35" Visibility="Hidden" Click="add_or_Click"/>
+                    <Separator></Separator>
+                    <Button x:Name="add_and_condition" Content="And" Height="19" Width="35" Visibility="Hidden" Click="add_add_Click"/>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

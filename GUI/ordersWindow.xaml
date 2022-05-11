@@ -1,0 +1,39 @@
+﻿<Window x:Class="GUI.ordersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="ordersWindow" Height="400" Width="400">
+    <Grid>
+        <ListView Name ="ordersList" HorizontalAlignment="Stretch" ItemsSource="{Binding orders}" SelectionChanged="ordersList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Sender" DisplayMemberBinding="{Binding Sender}" Width="200"/>
+                    <GridViewColumn Header="Target" DisplayMemberBinding="{Binding Target}" Width="200"/>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="#FFCDD7D9"/>
+                    <Setter Property="BorderBrush" Value="#274472" />
+                    <Setter Property="Foreground" Value="#274472" />
+                    <Setter Property="BorderThickness" Value="2" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+        <Grid>
+            <Border x:Name="popUp" Background="#2e3137" CornerRadius="20" Margin="49,61,55,192" Visibility="Hidden">
+            <StackPanel Margin="33,20,33,20">
+                    <Label Content="information:" Width="86" Foreground="White"/>
+                    <TextBlock x:Name="textSender" Text="{Binding Sender}" Foreground="White" Background="Gray" Width="181"/>
+                    <Button x:Name="Ok_buttom" Content="OK" Width="54" Click="Ok_buttom_Click"/>
+
+                </StackPanel>
+        </Border>
+    </Grid>
+    </Grid>
+</Window>
